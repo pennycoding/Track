@@ -8,6 +8,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -106,5 +107,15 @@ public class InformationService extends Service {
 				new TypeToken<Information>() {
 				}.getType());
 		return information;
+	}
+	
+	
+	
+	
+	public class LocalBinder extends Binder
+	{
+		public InformationService getService(){
+			return InformationService.this;
+		}
 	}
 }
